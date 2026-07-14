@@ -1,0 +1,164 @@
+{
+  "products": [
+    {
+      "id": "vc4ZOnAG",
+      "name": "couch",
+      "category": "WQ5YWmHk",
+      "shape": "chair",
+      "price": null,
+      "description": "couch for living room",
+      "material": "",
+      "woodTone": "#8B5E3C",
+      "accentTone": "#B08D57",
+      "featured": true,
+      "images": [],
+      "modelUrl": "/models/Couch.glb",
+      "modelScale": 1
+    },
+    {
+      "id": "7xVsrKgB",
+      "name": "Bed",
+      "category": "ol_T_2UH",
+      "shape": "chair",
+      "price": null,
+      "description": "Comfy Bed",
+      "material": "",
+      "woodTone": "#8B5E3C",
+      "accentTone": "#B08D57",
+      "featured": true,
+      "images": [],
+      "modelUrl": "/models/Bed Double.glb",
+      "modelScale": 1
+    },
+    {
+      "id": "44O-DyeH",
+      "name": "Study table",
+      "category": "X69UnErw",
+      "shape": "chair",
+      "price": null,
+      "description": "perfect table for study",
+      "material": "",
+      "woodTone": "#8B5E3C",
+      "accentTone": "#B08D57",
+      "featured": true,
+      "images": [],
+      "modelUrl": "/models/Desk.glb",
+      "modelScale": 1
+    },
+    {
+      "id": "DIf3HcXu",
+      "name": "kitchen interior",
+      "category": "844VIgHx",
+      "shape": "chair",
+      "price": null,
+      "description": "aesthetic kitchen interior ",
+      "material": "",
+      "woodTone": "#8B5E3C",
+      "accentTone": "#B08D57",
+      "featured": false,
+      "images": [],
+      "modelUrl": "/models/kitchen_design.glb",
+      "modelScale": 1
+    },
+    {
+      "id": "VpPS9zfw",
+      "name": "chair",
+      "category": "X69UnErw",
+      "shape": "chair",
+      "price": null,
+      "description": "chair for comfort",
+      "material": "",
+      "woodTone": "#8B5E3C",
+      "accentTone": "#B08D57",
+      "featured": false,
+      "images": [],
+      "modelUrl": "/models/chair.glb",
+      "modelScale": 1
+    }
+  ],
+  "categories": [
+    {
+      "id": "844VIgHx",
+      "name": "Kitchen",
+      "shape": "table"
+    },
+    {
+      "id": "ol_T_2UH",
+      "name": "Bedroom",
+      "shape": "bed"
+    },
+    {
+      "id": "WQ5YWmHk",
+      "name": "Living Area",
+      "shape": "sofa"
+    },
+    {
+      "id": "X69UnErw",
+      "name": "Others",
+      "shape": "decor"
+    }
+  ],
+  "inquiries": [
+    {
+      "id": "c_-8hO68",
+      "name": "misbah",
+      "phone": "9520342975",
+      "message": "i have to inquery about sofa set price.",
+      "productId": null,
+      "createdAt": "2026-07-11T15:05:17.620Z",
+      "status": "new"
+    },
+    {
+      "id": "Iy05qlos",
+      "name": "kaishafa",
+      "phone": "9898989898",
+      "message": "price of this bed?",
+      "productId": "7xVsrKgB",
+      "createdAt": "2026-07-11T15:10:37.610Z",
+      "status": "new"
+    },
+    {
+      "id": "vGx4CYMT",
+      "name": "misbah",
+      "phone": "9999999999",
+      "message": "price?",
+      "productId": "DIf3HcXu",
+      "createdAt": "2026-07-13T07:13:59.314Z",
+      "status": "new"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "fe63EvTc",
+      "name": "misbah",
+      "phone": "9520342975",
+      "address": "kichha , choti masjid",
+      "serviceType": "Polishing & Refinishing",
+      "preferredDate": "2026-07-12",
+      "description": "i want polishing of my cupboard",
+      "createdAt": "2026-07-11T15:07:18.420Z",
+      "status": "completed"
+    },
+    {
+      "id": "8ATB_v4Q",
+      "name": "misbah",
+      "phone": "9823457589",
+      "address": "kichha",
+      "serviceType": "Sofa Repair",
+      "preferredDate": "2026-07-14",
+      "description": "reparing",
+      "createdAt": "2026-07-12T15:31:24.028Z",
+      "status": "completed"
+    }
+  ],
+  "work": [
+    {
+      "id": "lWEiYvSc",
+      "title": "Led Panel",
+      "mediaType": "image",
+      "mediaUrl": "\\work\\ledpanel.jpeg",
+      "description": "",
+      "createdAt": "2026-07-13T06:40:26.069Z"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --linen: #f2e8d9;
+  --walnut: #3b2a20;
+  --wood: #9c6b43;
+  --brass: #b08d57;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--linen);
+  color: var(--walnut);
+  font-family: 'Work Sans', sans-serif;
+  background-image: radial-gradient(circle at 1px 1px, rgba(59, 42, 32, 0.05) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Fraunces', serif;
+}
+
+::selection {
+  background: var(--brass);
+  color: var(--linen);
+}
+
+/* visible keyboard focus, per accessibility floor */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.wood-grain-texture {
+  background-image: repeating-linear-gradient(
+    100deg,
+    rgba(0, 0, 0, 0.03) 0px,
+    rgba(0, 0, 0, 0.03) 2px,
+    transparent 2px,
+    transparent 8px
+  );
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.hero-fade {
+  animation: heroFadeIn 0.5s ease-out;
+}
