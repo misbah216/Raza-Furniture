@@ -23,10 +23,9 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-40 bg-walnut/95 backdrop-blur border-b border-black/20">
       <div className="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
-        <Link to="/" className="font-display text-xl font-semibold tracking-tight text-linen flex items-center">
-    <img src="/logo.png" alt="Raza Furniture Logo" className="h-12 w-auto object-contain" />
+        <Link to="/" className="font-display text-xl font-semibold tracking-tight text-linen">
+    Raza <span className="text-brassLight">Furniture</span>
 </Link>
-
         <nav className="hidden md:flex items-center gap-8">
           {LINKS.map((l) => (
             <NavLink
