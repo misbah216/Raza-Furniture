@@ -15,7 +15,7 @@ export default function Footer() {
             <li>Email: akilahamad350@gmail.com</li>
               <li>
                 <a
-                  href="https://maps.app.goo.gl/pAqXttY8oLgjGXgw5?g_st=ac"
+                  href="https://www.google.com/maps?q=28.9177986,79.5167192"
                   target="_blank"
                   rel="noreferrer"
                   className="hover:text-brassLight transition-colors"

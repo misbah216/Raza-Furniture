@@ -52,7 +52,7 @@ export default function Contact() {
           <div className="mt-6 rounded-xl overflow-hidden border-2 border-brass shadow-md">
             <iframe
               title="Raza Furniture Location"
-              src="https://maps.app.goo.gl/pAqXttY8oLgjGXgw5?g_st=ac"
+              src="https://www.google.com/maps?q=28.9177986,79.5167192&output=embed"
               width="100%"
               height="250"
               style={{ border: 0 }}
