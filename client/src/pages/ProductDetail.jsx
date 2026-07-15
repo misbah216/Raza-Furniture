@@ -63,7 +63,7 @@ export default function ProductDetail() {
         </Link>
         <h1 className="font-display text-3xl text-walnut mt-3">{product.name}</h1>
        <p className="text-brass text-2xl font-semibold mt-2">
-          {product.price ? `₹${product.price.toLocaleString('en-IN')}` : 'Price on request — contact us'}
+          {product.price ? `₹${product.price.toLocaleString('en-IN')}` : 'Price on request , contact us'}
         </p>
         <p className="text-walnut/70 mt-4 leading-relaxed">{product.description}</p>
         <p className="text-sm text-walnut/50 mt-3">

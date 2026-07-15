@@ -52,7 +52,7 @@ export default function Contact() {
           <div className="mt-6 rounded-xl overflow-hidden border-2 border-brass shadow-md">
             <iframe
               title="Raza Furniture Location"
-              src="https://www.google.com/maps?q=Badi+nahar+uttranchal+colony+road+bandia+kichha+uttrakhand+263148&output=embed"
+              src="https://maps.app.goo.gl/pAqXttY8oLgjGXgw5?g_st=ac"
               width="100%"
               height="250"
               style={{ border: 0 }}

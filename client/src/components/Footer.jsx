@@ -13,17 +13,17 @@ export default function Footer() {
          <ul className="text-sm space-y-2 text-linen/70">
             <li>Phone: +91 9927418320</li>
             <li>Email: akilahamad350@gmail.com</li>
-            <li>
-              <a
-                href="https://www.google.com/maps?q=Badi+nahar+uttranchal+colony+road+bandia+kichha+uttrakhand+263148"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-brassLight transition-colors"
-              >
-                Badi nahar, uttranchal colony road bandia, kichha, uttrakhand 263148
-              </a>
-            </li>
-            <li>
+              <li>
+                <a
+                  href="https://maps.app.goo.gl/pAqXttY8oLgjGXgw5?g_st=ac"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-brassLight transition-colors"
+                >
+                  Badi nahar, uttranchal colony road bandia, kichha, uttrakhand 263148
+                </a>
+              </li>
+              <li>
               <a
                 href="https://www.instagram.com/akeel_saifi_331?igsh=NWU3cnM0amNmYXdj"
                 target="_blank"
