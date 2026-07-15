@@ -1,18 +1,18 @@
-import { db, initDb } from './db.js';
-import { nanoid } from 'nanoid';
+import 'dotenv/config';
+import mongoose from 'mongoose';
+import Category from './models/Category.js';
+import Product from './models/Product.js';
 
-await initDb();
-db.data.categories = [
-  { id: nanoid(8), name: 'Kitchen', shape: 'table' },
-  { id: nanoid(8), name: 'Bedroom', shape: 'bed' },
-  { id: nanoid(8), name: 'Living Area', shape: 'sofa' },
-  { id: nanoid(8), name: 'Others', shape: 'decor' },
-];
+await mongoose.connect(process.env.MONGODB_URI);
+await Category.deleteMany({});
+await Product.deleteMany({});
 
+await Category.insertMany([
+  { name: 'Kitchen', shape: 'table' },
+  { name: 'Bedroom', shape: 'bed' },
+  { name: 'Living Area', shape: 'sofa' },
+  { name: 'Others', shape: 'decor' },
+]);
 
-const cat = (name) => db.data.categories.find((c) => c.name === name).id;
-
-db.data.products = [];
-
-await db.write();
-console.log('Database seeded with', db.data.products.length, 'products');
+console.log('Categories seeded. Add products from the admin dashboard.');
+await mongoose.disconnect();

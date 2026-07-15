@@ -23,7 +23,8 @@ app.get('/api/health', (req, res) => res.json({ ok: true }));
 
 const PORT = process.env.PORT || 4000;
 
-initDb().then(() => {
+initDb()
+  .then(() => {
   app.listen(PORT, () => {
     console.log(`Raza Furniture API running on http://localhost:${PORT}`);
   });
