@@ -9,9 +9,15 @@ export default function Home() {
   const [featured, setFeatured] = useState([]);
   const [categories, setCategories] = useState([]);
   const [heroIndex, setHeroIndex] = useState(0);
+  const [loadingFeatured, setLoadingFeatured] = useState(true);
 
   useEffect(() => {
-    getProducts({ featured: 'true' }).then(setFeatured).catch(() => {});
+    getProducts({ featured: 'true' })
+      .then((data) => {
+        setFeatured(data);
+        setLoadingFeatured(false);
+      })
+      .catch(() => setLoadingFeatured(false));
     getCategories().then(setCategories).catch(() => {});
   }, []);
 
@@ -69,7 +75,11 @@ export default function Home() {
 
           <div className="h-80 md:h-[26rem] relative">
             <div className="absolute inset-0 bg-brassLight/10 rounded-[2rem] wood-grain-texture" />
-           {currentHeroModel ? (
+           {loadingFeatured ? (
+              <div className="w-full h-full flex items-center justify-center text-walnut/40 text-sm">
+                Loading...
+              </div>
+            ) : currentHeroModel ? (
               <Scene3D
                 key={currentHeroModel.id}
                 modelUrl={currentHeroModel.modelUrl}
@@ -118,7 +128,7 @@ export default function Home() {
         </div>
         {featured.length === 0 && (
           <p className="text-walnut/50 text-sm">
-            Products are loading — please check that the server is running.
+            Products are loading - please check that the server is running.
           </p>
         )}
       </section>
@@ -130,7 +140,7 @@ export default function Home() {
             A Promise Since 1997
           </h2>
           <p className="text-linen/70 max-w-2xl mx-auto italic">
-            "Since 1997, every piece we build has carried the same promise - honest
+            "Since 1997, every piece we build has carried the same promise . honest
             craftsmanship, made to last a lifetime."
           </p>
         </div>

@@ -29,7 +29,7 @@ export default function About() {
             />
           </div>
           <p className="text-center text-base font-medium text-walnut mt-10">
-            Founder of Raza Furniture - Akeel Ahmad Saifi
+            Founder of Raza Furniture , Akeel Ahmad Saifi
           </p>
         </div>
       </div>
