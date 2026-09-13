@@ -30,5 +30,18 @@ export const getWork = () => api.get('/work').then((r) => r.data);
 export const createWork = (data) => api.post('/work', data).then((r) => r.data);
 export const deleteWork = (id) => api.delete(`/work/${id}`).then((r) => r.data);
 
+export const uploadWorkFile = (file, onProgress) => {
+  const formData = new FormData();
+  formData.append('file', file);
+  return api
+    .post('/work/upload', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+      onUploadProgress: (evt) => {
+        if (onProgress) onProgress(Math.round((evt.loaded * 100) / evt.total));
+      },
+    })
+    .then((r) => r.data);
+};
+
 export const adminLogin = (email, password) =>
   api.post('/auth/login', { email, password }).then((r) => r.data);

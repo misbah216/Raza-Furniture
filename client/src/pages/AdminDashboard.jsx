@@ -12,6 +12,7 @@ import {
   getWork,
   createWork,
   deleteWork,
+  uploadWorkFile,
 } from '../lib/api';
 
 const emptyForm = {
@@ -33,8 +34,25 @@ export default function AdminDashboard() {
   const [inquiries, setInquiries] = useState([]);
   const [bookings, setBookings] = useState([]);
   const [work, setWork] = useState([]);
-  const [workForm, setWorkForm] = useState({ title: '', mediaType: 'image', mediaUrl: '', description: '' });
+   const [workForm, setWorkForm] = useState({ title: '', mediaType: 'image', mediaUrl: '', description: '' });
   const [workError, setWorkError] = useState('');
+  const [uploadProgress, setUploadProgress] = useState(null);
+
+  async function handleFileSelect(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setUploadProgress(0);
+    setWorkError('');
+    try {
+      const result = await uploadWorkFile(file, setUploadProgress);
+      setWorkForm((prev) => ({ ...prev, mediaUrl: result.url, mediaType: result.type }));
+    } catch (err) {
+      setWorkError('Upload failed, please try again');
+    } finally {
+      setUploadProgress(null);
+    }
+  }
   const [form, setForm] = useState(emptyForm);
   const [editingId, setEditingId] = useState(null);
   const [error, setError] = useState('');
@@ -408,21 +426,28 @@ export default function AdminDashboard() {
                 onChange={(e) => setWorkForm({ ...workForm, title: e.target.value })}
                 className="w-full border border-walnut/20 rounded-lg px-3 py-2 bg-white/70 outline-none focus:border-brass"
               />
-              <select
-                value={workForm.mediaType}
-                onChange={(e) => setWorkForm({ ...workForm, mediaType: e.target.value })}
-                className="w-full border border-walnut/20 rounded-lg px-3 py-2 bg-white/70 outline-none focus:border-brass"
-              >
-                <option value="image">Photo</option>
-                <option value="video">Video</option>
-              </select>
-              <input
-                required
-                placeholder="File path (e.g. /work/dining-set.jpg or .mp4)"
-                value={workForm.mediaUrl}
-                onChange={(e) => setWorkForm({ ...workForm, mediaUrl: e.target.value })}
-                className="w-full border border-walnut/20 rounded-lg px-3 py-2 bg-white/70 outline-none focus:border-brass"
-              />
+                            <label className="block">
+                <span className="text-sm text-walnut/70 mb-1 block">Choose a photo or video</span>
+                <input
+                  type="file"
+                  accept="image/*,video/*"
+                  onChange={handleFileSelect}
+                  className="w-full border border-walnut/20 rounded-lg px-3 py-2 bg-white/70 text-sm"
+                />
+              </label>
+
+              {uploadProgress !== null && (
+                <div className="w-full bg-walnut/10 rounded-full h-2">
+                  <div
+                    className="bg-brass h-2 rounded-full transition-all"
+                    style={{ width: `${uploadProgress}%` }}
+                  />
+                </div>
+              )}
+
+              {workForm.mediaUrl && uploadProgress === null && (
+                <p className="text-xs text-pine">✓ File uploaded and ready</p>
+              )}
               <textarea
                 placeholder="Description (optional)"
                 rows={2}
@@ -431,9 +456,10 @@ export default function AdminDashboard() {
                 className="w-full border border-walnut/20 rounded-lg px-3 py-2 bg-white/70 outline-none focus:border-brass"
               />
               {workError && <p className="text-red-700 text-sm">{workError}</p>}
-              <button
+                            <button
                 type="submit"
-                className="bg-walnut text-linen px-5 py-2 rounded-full text-sm hover:bg-pine transition-colors"
+                disabled={!workForm.mediaUrl || uploadProgress !== null}
+                className="bg-walnut text-linen px-5 py-2 rounded-full text-sm hover:bg-pine transition-colors disabled:opacity-50"
               >
                 Add
               </button>

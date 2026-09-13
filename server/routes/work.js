@@ -1,8 +1,20 @@
 import { Router } from 'express';
 import Work from '../models/Work.js';
 import { requireAdmin } from '../middleware/auth.js';
+import { upload } from '../cloudinary.js';
 
 const router = Router();
+
+
+router.post('/upload', requireAdmin, upload.single('file'), (req, res) => {
+  if (!req.file) return res.status(400).json({ error: 'No file received' });
+  res.json({
+    url: req.file.path,
+    type: req.file.mimetype.startsWith('video') ? 'video' : 'image',
+  });
+});
+
+
 
 router.get('/', async (req, res) => {
   const work = await Work.find().sort({ createdAt: -1 });
