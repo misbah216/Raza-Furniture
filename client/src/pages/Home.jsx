@@ -27,9 +27,13 @@ export default function Home() {
 
   // Preload every hero model up front so switching between them is instant,
   // instead of each one re-fetching/parsing when it becomes active.
-  useEffect(() => {
-    heroModels.forEach((p) => {
-      useGLTF.preload(p.modelUrl);
+   useEffect(() => {
+    if (heroModels.length === 0) return;
+    useGLTF.preload(heroModels[0].modelUrl);
+
+    const rest = heroModels.slice(1);
+    rest.forEach((p, i) => {
+      setTimeout(() => useGLTF.preload(p.modelUrl), (i + 1) * 1500);
     });
   }, [featured]);
 
